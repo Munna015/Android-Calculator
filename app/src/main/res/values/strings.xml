@@ -24,4 +24,5 @@
     <string name="result">Result</string>
     <string name="dis">dis</string>
     <string name="contain_yourself">Contain yourself.</string>
+    <string name="negativeNr">-Nr</string>
 </resources>

@@ -39,11 +39,11 @@ public class MainActivityTest {
     public void setUp() throws Exception {
     }
 
-    @Test
-    public void writeDisTextBoxTest() throws Exception {
-        //View Matcher is used.
-        onView(withId(R.id.disTextView)).check(matches(withText("dis")));
-    }
+//    @Test
+//    public void writeDisTextBoxTest() throws Exception {
+//        //View Matcher is used.
+//        onView(withId(R.id.disTextView)).check(matches(withText("dis")));
+//    }
 
     @Test
     public void sevenButtonIsRendered() throws Exception {
