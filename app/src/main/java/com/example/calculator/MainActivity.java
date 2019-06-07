@@ -347,9 +347,9 @@ public class MainActivity extends AppCompatActivity {
                     compute();
                     ACTION = action;
                 }
-                else {
-
-                }
+//                else {
+//
+//                }
             }
             else {
                 switch(action){
