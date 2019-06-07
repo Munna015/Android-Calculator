@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     // Miscellaneous
     private Button clearButton;
     private Button dotButton;
+    private Button negativeNumberButton;
 
     // Division
     private Button divisionButton;
@@ -75,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s0", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -84,8 +87,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s1", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -93,8 +98,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s2", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -102,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s3", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -111,8 +120,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s4", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -120,8 +131,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s5", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -129,8 +142,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s6", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -138,8 +153,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s7", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -147,8 +164,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s8", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -156,8 +175,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int textLength = controlTextView.getText().toString().length();
-                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10)
+                if((ACTION != EQU || Double.isNaN(valueOne)) && textLength < 10) {
+                    negativeNumberButton.setEnabled(false);
                     controlTextView.setText(String.format("%s9", controlTextView.getText().toString()));
+                }
             }
         });
 
@@ -167,24 +188,39 @@ public class MainActivity extends AppCompatActivity {
                 int textLength = controlTextView.getText().toString().length();
 
                 if((ACTION != EQU) || Double.isNaN(valueOne)) {
-                    if(textLength == 0)
+                    if(textLength == 0 || controlTextView.getText().toString().equals("-")) {
                         controlTextView.setText(String.format("%s0.", controlTextView.getText().toString()));
-                    else if(textLength < 10)
+                    }
+                    else if(textLength < 10) {
                         controlTextView.setText(String.format("%s.", controlTextView.getText().toString()));
+                    }
 
                     dotButton.setEnabled(false);
+                    negativeNumberButton.setEnabled(false);
                     mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.uh);
                     mediaPlayer.start();
                 }
             }
         });
 
+        negativeNumberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(controlTextView.getText().toString().isEmpty() && (Double.isNaN(valueOne) || ACTION != EQU)) {
+                    controlTextView.setText(String.format("%s-", controlTextView.getText().toString()));
+                    negativeNumberButton.setEnabled(false);
+                }
+
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.badumtss);
+                mediaPlayer.start();
+            }
+        });
 
         additionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Daca valueOne are o valoare atribuita sau am text in controlTextView
-                if(!Double.isNaN(valueOne) || !controlTextView.getText().toString().isEmpty())
+                // Whether valueOne was initialized or there is text in controlTextView that is different from only "-".
+                if(!Double.isNaN(valueOne) || (!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")))
                     operationClickMethod(ADDITION);
             }
         });
@@ -192,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         subtractionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Double.isNaN(valueOne) || !controlTextView.getText().toString().isEmpty())
+                if(!Double.isNaN(valueOne) || (!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")))
                     operationClickMethod(SUBTRACTION);
             }
         });
@@ -200,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
         multiplicationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Double.isNaN(valueOne) || !controlTextView.getText().toString().isEmpty())
+                if(!Double.isNaN(valueOne) || (!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")))
                     operationClickMethod(MULTIPLICATION);
             }
         });
@@ -208,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
         divisionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!Double.isNaN(valueOne) || !controlTextView.getText().toString().isEmpty())
+                if(!Double.isNaN(valueOne) || (!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")))
                     operationClickMethod(DIVISION);
             }
         });
@@ -216,19 +252,32 @@ public class MainActivity extends AppCompatActivity {
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!controlTextView.getText().toString().isEmpty()) {
+                if(!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")) {
                     compute();
-                    controlTextView.setText(null);
-                    ACTION = EQU;
 
-                    if(String.valueOf(df.format(valueOne)).length() <= 11)
-                        resultTextView.setText(String.format("%s%s", ACTION, String.valueOf(df.format(valueOne))));
-                    else
+                    // Division by zero.
+                    if(valueTwo == 0 && ACTION == DIVISION) {
                         freezeApp();
+                    }
+                    else {
+                        controlTextView.setText(null);
+                        ACTION = EQU;
+
+                        if(String.valueOf(df.format(valueOne)).length() <= 11) {
+                            resultTextView.setText(String.format("%s%s", ACTION, String.valueOf(df.format(valueOne))));
+
+                        }
+                        else {
+                            freezeApp();
+                        }
+                    }
                 }
                 else if(!Double.isNaN(valueOne)){
                     ACTION = EQU;
                     resultTextView.setText(String.format("%s%s", ACTION, String.valueOf(df.format(valueOne))));
+                    if(controlTextView.getText().toString().equals("-")) {
+                        controlTextView.setText(null);
+                    }
                 }
 
                 ACTION = EQU;
@@ -248,6 +297,9 @@ public class MainActivity extends AppCompatActivity {
                             !currentText.toString().contains(".")) {
                         dotButton.setEnabled(true);
                     }
+                    if(controlTextView.getText().toString().isEmpty()) {
+                        negativeNumberButton.setEnabled(true);
+                    }
                 }
                 else {
                     valueOne = Double.NaN;
@@ -255,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
                     controlTextView.setText(null);
                     resultTextView.setText(null);
                     dotButton.setEnabled(true);
+                    negativeNumberButton.setEnabled(true);
                 }
             }
         });
@@ -277,8 +330,10 @@ public class MainActivity extends AppCompatActivity {
         subtractionButton = (Button) findViewById(R.id.subtractionButton);
         additionButton = (Button) findViewById(R.id.additionButton);
         equalButton = (Button) findViewById(R.id.equalButton);
+
         clearButton = (Button) findViewById(R.id.clearButton);
         dotButton = (Button) findViewById(R.id.dotButton);
+        negativeNumberButton = (Button) findViewById(R.id.negativeNumberButton);
 
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         controlTextView = (TextView) findViewById(R.id.controlTextView);
@@ -287,8 +342,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void compute() {
+        if(controlTextView.getText().toString().equals("-")) {
+            freezeApp();
+        }
 
-        // Daca valueOne este un numar.
+        // If valueOne is a number.
         if(!Double.isNaN(valueOne)) {
             valueTwo = Double.parseDouble(controlTextView.getText().toString());
 
@@ -315,11 +373,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         dotButton.setEnabled(true);
+        negativeNumberButton.setEnabled(true);
     }
 
     // Whenever I click on an operation (which sets the action).
     public void operationClickMethod(char action) {
-        if(ACTION != EQU && controlTextView.getText().toString().isEmpty())
+        if(controlTextView.getText().toString().equals("-")) {
+            freezeApp();
+        }
+        else if(ACTION != EQU && controlTextView.getText().toString().isEmpty())
         {
             if(!Double.isNaN(valueOne))
             {
@@ -371,7 +433,7 @@ public class MainActivity extends AppCompatActivity {
                 controlTextView.setText(null);
             }
         }
-        else if(ACTION != action /*&& ACTION != EQU*/) {
+        else if(ACTION != action) {
             compute();
             ACTION = action;
         }
