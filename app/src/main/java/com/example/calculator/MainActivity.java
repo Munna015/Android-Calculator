@@ -254,13 +254,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")) {
                     compute();
-                    controlTextView.setText(null);
-                    ACTION = EQU;
 
-                    if(String.valueOf(df.format(valueOne)).length() <= 11)
-                        resultTextView.setText(String.format("%s%s", ACTION, String.valueOf(df.format(valueOne))));
-                    else
+                    // Division by zero.
+                    if(valueTwo == 0 && ACTION == DIVISION) {
                         freezeApp();
+                    }
+                    else {
+                        controlTextView.setText(null);
+                        ACTION = EQU;
+
+                        if(String.valueOf(df.format(valueOne)).length() <= 11) {
+                            resultTextView.setText(String.format("%s%s", ACTION, String.valueOf(df.format(valueOne))));
+
+                        }
+                        else {
+                            freezeApp();
+                        }
+                    }
                 }
                 else if(!Double.isNaN(valueOne)){
                     ACTION = EQU;
@@ -332,11 +342,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void compute() {
-        // Daca valueOne este un numar.
         if(controlTextView.getText().toString().equals("-")) {
             freezeApp();
         }
 
+        // If valueOne is a number.
         if(!Double.isNaN(valueOne)) {
             valueTwo = Double.parseDouble(controlTextView.getText().toString());
 
@@ -371,8 +381,7 @@ public class MainActivity extends AppCompatActivity {
         if(controlTextView.getText().toString().equals("-")) {
             freezeApp();
         }
-
-        if(ACTION != EQU && controlTextView.getText().toString().isEmpty())
+        else if(ACTION != EQU && controlTextView.getText().toString().isEmpty())
         {
             if(!Double.isNaN(valueOne))
             {
