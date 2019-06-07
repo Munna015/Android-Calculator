@@ -30,12 +30,6 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/disTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dis" />
-
-            <TextView
                 android:id="@+id/controlTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -50,7 +44,7 @@
 
 
         <!--Result Text View-->
-        <!--In TableRow, layout_weight seteaza height -->
+        <!--In TableRow, layout_weight sets height -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,7 +52,7 @@
             android:layout_weight="19"
             android:gravity="center">
 
-            <!--In TextView, layout_weight seteaza width-->
+            <!--In TextView, layout_weight sets width-->
 
             <TextView
                 android:id="@+id/resultTextView"
@@ -293,22 +287,33 @@
 
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_weight="20"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
                 android:id="@+id/dotButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="1sp"
-                android:layout_weight="90"
+                android:layout_weight="10"
 
                 android:background="@drawable/dotbuttonshape"
                 android:text="@string/dot"
                 android:textSize="50sp" />
+
+            <Button
+                android:id="@+id/negativeNumberButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1sp"
+                android:layout_weight="10"
+
+                android:background="@drawable/dotbuttonshape"
+                android:text="@string/negativeNr"
+                android:textSize="35sp" />
 
         </TableRow>
 
