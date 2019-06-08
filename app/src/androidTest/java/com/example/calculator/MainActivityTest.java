@@ -101,7 +101,7 @@ public class MainActivityTest {
 
     @Test
     public void elementInTheFirstTableRowWithPlusTextIsDisplayedTest() {
-        // allOf selects the view.
+        // allOf selects the view. Passes if the selected view is displayed.
         onView(allOf(isDescendantOfA(withId(R.id.firstTableRow)), withText("+"))).check(matches(isDisplayed()));
     }
 
