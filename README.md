@@ -1,6 +1,3 @@
 # AndroidCalculator
 
-Rebase to remote master.
-Fetch.
-Commit.
-Push.
+A basic calculator app. With sounds.
