@@ -409,9 +409,6 @@ public class MainActivity extends AppCompatActivity {
                     compute();
                     ACTION = action;
                 }
-//                else {
-//
-//                }
             }
             else {
                 switch(action){
@@ -447,7 +444,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Display(char action) {
-        // If valueOne was initialized, I do display.
+        // If valueOne was initialized, I call display method.
         if(!Double.isNaN(valueOne) && String.valueOf(df.format(valueOne)).length() <= 11) {
             if(resultTextView.getText().toString().isEmpty())
             {
