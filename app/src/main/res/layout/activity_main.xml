@@ -87,6 +87,7 @@
 
 
         <TableRow
+            android:id="@+id/firstTableRow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -137,6 +138,7 @@
 
 
         <TableRow
+            android:id="@+id/secondTableRow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -187,6 +189,7 @@
 
 
         <TableRow
+            android:id="@+id/thirdTableRow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -241,7 +244,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_weight="10"
-            android:gravity="center">
+            android:gravity="center"
+            android:id="@+id/fourthTableRow">
 
             <Button
                 android:id="@+id/clearButton"
@@ -254,7 +258,7 @@
                 android:textSize="35sp" />
 
             <Button
-                android:id="@+id/button0"
+                android:id="@+id/zeroButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1sp"
@@ -287,6 +291,7 @@
 
 
         <TableRow
+            android:id="@+id/fifthTableRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"

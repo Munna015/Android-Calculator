@@ -314,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupUIViews() {
-        zeroBtn = (Button) findViewById(R.id.button0);
+        zeroBtn = (Button) findViewById(R.id.zeroButton);
         oneBtn = (Button) findViewById(R.id.oneButton);
         twoBtn = (Button) findViewById(R.id.twoButton);
         threeBtn = (Button) findViewById(R.id.threeButton);
@@ -409,9 +409,9 @@ public class MainActivity extends AppCompatActivity {
                     compute();
                     ACTION = action;
                 }
-                else {
-
-                }
+//                else {
+//
+//                }
             }
             else {
                 switch(action){
