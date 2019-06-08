@@ -341,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
         StoreKeyboardButtons();
     }
 
-    private void compute() {
+    public void compute() {
         if(controlTextView.getText().toString().equals("-")) {
             freezeApp();
         }
