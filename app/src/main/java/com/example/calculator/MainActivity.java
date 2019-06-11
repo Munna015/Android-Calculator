@@ -219,7 +219,6 @@ public class MainActivity extends AppCompatActivity {
         additionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Whether valueOne was initialized or there is text in controlTextView that is different from only "-".
                 if(!Double.isNaN(valueOne) || (!controlTextView.getText().toString().isEmpty() && !controlTextView.getText().toString().equals("-")))
                     operationClickMethod(ADDITION);
             }
@@ -313,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Here I have referenced all my UI views, and stored my keyboard buttons.
     private void setupUIViews() {
         zeroBtn = (Button) findViewById(R.id.zeroButton);
         oneBtn = (Button) findViewById(R.id.oneButton);
@@ -341,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
         StoreKeyboardButtons();
     }
 
+    // This method makes the calculations.
     public void compute() {
         if(controlTextView.getText().toString().equals("-")) {
             freezeApp();
@@ -367,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-        // If valueOne is not initialized, I set it to what's written in the controlTextView.
+        // If valueOne is not initialized, I store in it what's written in the controlTextView.
         else {
             valueOne = Double.parseDouble(controlTextView.getText().toString());
         }
@@ -376,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
         negativeNumberButton.setEnabled(true);
     }
 
-    // Whenever I click on an operation (which sets the action).
+    // This method is called when I click on an operation (which sets the action), if valueOne was initialized or there is text in controlTextView that is different from only "-".
     public void operationClickMethod(char action) {
         if(controlTextView.getText().toString().equals("-")) {
             freezeApp();
@@ -442,9 +443,8 @@ public class MainActivity extends AppCompatActivity {
         Display(ACTION);
     }
 
-
+    // Deals with displaying user input.
     public void Display(char action) {
-        // If valueOne was initialized, I call display method.
         if(!Double.isNaN(valueOne) && String.valueOf(df.format(valueOne)).length() <= 11) {
             if(resultTextView.getText().toString().isEmpty())
             {
@@ -462,6 +462,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Stores keyboard buttons. I need them for freezing the app (disabling all buttons)
     private ArrayList<View> keyboardButtons;
     public void StoreKeyboardButtons() {
         TableLayout keyboard = (TableLayout) findViewById(R.id.tableLayout);
@@ -477,7 +478,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    // Disables all buttons for a certain amount of time. Clears all stored values and user input.
     public void freezeApp() {
         countDownTimer = new CountDownTimer(2000, 1000) {
             @Override
