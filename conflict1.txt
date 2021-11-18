@@ -1,0 +1,5 @@
+this is conflict file
+<<<<<<< HEAD
+this is conflict file
+=======
+>>>>>>> 016ea2c1047452f2b092148c2edacc964b98056a
